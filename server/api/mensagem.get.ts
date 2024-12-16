@@ -13,7 +13,9 @@ export default defineEventHandler(async () => {
     `;
   
     // Consulta as mensagens
-    const rows = await sql`SELECT * FROM mensagens`;
+    const rows = await sql`SELECT * 
+FROM mensagens 
+ORDER BY created_at DESC;`;
   
     return rows;
   });
