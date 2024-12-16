@@ -4,5 +4,8 @@ export default defineNitroConfig({
   compatibilityDate: "2024-12-15",
   experimental: {
     database: true
+  },
+  routeRules: {
+    '/api/**': { cors: false}
   }
 });
