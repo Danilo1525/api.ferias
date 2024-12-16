@@ -4,12 +4,5 @@ export default defineNitroConfig({
   compatibilityDate: "2024-12-15",
   experimental: {
     database: true
-  },
-  routeRules: {
-    '/api/**': { cors: true,headers:{
-      'access-control-allow-origin': '*',
-      'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'access-control-allow-headers': '*'
-    }}
   }
 });
