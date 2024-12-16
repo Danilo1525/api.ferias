@@ -1,21 +1,20 @@
+import { neon } from "@neondatabase/serverless";
+
 export default defineEventHandler(async () => {
-    const db = useDatabase();
-  
+    const sql = neon(process.env.DATABASE_URL);
     // Criação da tabela de mensagens
-    await db.sql`
+    await sql`
       CREATE TABLE IF NOT EXISTS mensagens (
-        "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-        "autor" TEXT,
-        "mensagem" TEXT,
-        "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
+      "id" SERIAL PRIMARY KEY,  -- SERIAL é o equivalente ao AUTOINCREMENT no PostgreSQL
+      "autor" TEXT,
+      "mensagem" TEXT,
+      "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
     `;
   
     // Consulta as mensagens
-    const { rows } = await db.sql`SELECT * FROM mensagens`;
+    const rows = await sql`SELECT * FROM mensagens`;
   
-    return {
-      rows,
-    };
+    return rows;
   });
   

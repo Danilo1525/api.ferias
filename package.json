@@ -10,5 +10,9 @@
   "devDependencies": {
     "better-sqlite3": "^11.7.0",
     "nitropack": "latest"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "pg": "^8.13.1"
   }
 }
