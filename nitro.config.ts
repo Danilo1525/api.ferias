@@ -7,7 +7,7 @@ export default defineNitroConfig({
   },
   routeRules: {
     '/api/**': { cors: true,headers:{
-      'access-control-allow-origin': '*',
+      origin: '*',
       'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS'
       'access-control-allow-headers': 'Content-Type, Authorization'
     }}
